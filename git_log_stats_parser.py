@@ -78,7 +78,8 @@ class GitLogStatsParser:
 
         commits = sorted(commit_dict.values(), key=lambda x: x['date'], reverse=True)
         csv_keys = commits[0].keys()
-        with open(out_csv_file, 'w') as csv_file:
+        
+        with open(out_csv_file, 'w', newline="") as csv_file:
             dict_writer = csv.DictWriter(csv_file, fieldnames=csv_keys)
             dict_writer.writeheader()
             dict_writer.writerows(commits)
